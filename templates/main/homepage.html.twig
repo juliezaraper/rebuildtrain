@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %} {# This line extends the base.html.twig file #}
+
+{% block title %}Home Page{% endblock %} {# This line sets the title of the page #}
+
+{% block stylesheets %} {# This line starts the stylesheets block #}
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        div {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            text-align: left;
+        }
+    </style>
+{% endblock %} {# This line ends the stylesheets block #}
+{% block body %} {# This line starts the body block, block means a section of the page #}
+<div>
+    <h1>Hello, World!</h1>
+    <h4>Okay na to!!!</h4>
+</div>
+<div>
+    <h3>Number of my projects: {{ numberOfMyProjects }} </h3>
+    {% if numberOfMyProjects < 25 %}
+        <p style="font-style: italic;">You need more projects!</p>
+    {% else %}
+        <p style="font-style: italic;">Good job!</p>
+    {% endif %}
+</div>
+<div>
+    <h3>My Project Table</h3>
+    <table>
+        <tr>
+            <th>Project Name :</th>
+            <td>{{ myActivitySnapshotTable.projectName }}</td>
+        </tr>
+        <tr>
+            <th>Project Description :</th>
+            <td>{{ myActivitySnapshotTable.projectDescription }}</td>
+        </tr>
+        <tr>
+            <th>Project Deadline :</th>
+            <td>{{ myActivitySnapshotTable.projectDeadline}}</td>
+        </tr>
+        <tr>
+            <th>Project Status :</th>
+            <td>{{ myActivitySnapshotTable.projectStatus | upper }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %} {# This line ends the body block #}

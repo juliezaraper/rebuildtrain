@@ -2,16 +2,19 @@
 
 namespace App\Controller;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
 class ProjectsApiController extends AbstractController
 {
     #[Route('/api/projects', name: 'api_projects')]
-    public function index(): JsonResponse
+    public function getProjects(LoggerInterface $logger): JsonResponse
     {
+        $logger->info('Projects API was called');
         // This is a hardcoded array of projects
         $projects = [
             [

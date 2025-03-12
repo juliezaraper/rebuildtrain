@@ -14,8 +14,8 @@ class ProjectsApiController extends AbstractController
     #[Route('/api/projects', name: 'api_projects')]
     public function getProjects(LoggerInterface $logger): JsonResponse
     {
-        // $logger->info('Projects API was called');
-        dd($logger);
+        $logger->info('Projects API was called');
+        // dd($logger);
         // This is a hardcoded array of projects
         $projects = [
             [
